@@ -1,0 +1,510 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt,
+  a4paper,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\newcommand{\thetitle}{Введение в CV на примере реализации задачи Key
+point detection на C++ и Python}
+\newcommand{\theauthor}{Старовойтов А. И.}
+\newcommand{\theteacher}{Посевин Д. П.}
+\newcommand{\thegroup}{ИУ9-21Б}
+\newcommand{\thecourse}{Языки и методы программирования}
+\newcommand{\thenumber}{2}
+
+\usepackage{geometry}
+
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage{polyglossia}
+\usepackage[autostyle=true]{csquotes}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+\usepackage{fvextra}
+
+\renewcommand{\maketitle}
+{
+\newgeometry{
+  left=0.7in,
+  right=0.7in,
+}
+\begin{titlepage}
+    \centering
+    Федеральное государственное бюджетное образовательное учреждение\\
+    высшего профессионального образования\\
+    <<Московский государственный технический университет\\
+    имени Н.Э. Баумана>>\\
+    (МГТУ им. Н.Э. Баумана)
+    \vspace{1cm}
+
+    \flushleft
+
+    Факультет: \underline{Информатика и системы управления}\\
+    Кафедра: \underline{Теоретическая информатика и компьютерные технологии}
+
+    \centering
+    \topskip0pt
+    \vspace*{\fill}
+    ДЗ №\thenumber{}\\
+    <<\thetitle{}>>\\
+    по курсу: <<\thecourse{}>>
+    \vspace*{\fill}
+    \centering
+
+    %\vspace{2cm}
+
+    \hfill\begin{minipage}{0.4\linewidth}
+        Выполнил:\\
+        Студент группы \thegroup{}\\
+        \theauthor\\
+        \\
+        Проверил:\\
+        \theteacher
+    \end{minipage}
+
+    \vfill
+
+    Москва, \the\year{}
+
+\end{titlepage}
+\restoregeometry{}
+}
+
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{ux446ux435ux43bux438}{%
+\section{Цели}\label{ux446ux435ux43bux438}}
+
+Знакомство с возможностями языка С++ и Python для реализации задач
+машинного зрения.
+
+\hypertarget{ux437ux430ux434ux430ux447ux438}{%
+\section{Задачи}\label{ux437ux430ux434ux430ux447ux438}}
+
+Реализовать на C++ (см. п. 2.1.) и Python (см. п. 2.2.) под любую ОС по
+желанию студента следующие задачи:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Распознавание координат точек кисти со снимков получаемых с камеры,
+  координаты точек выводятся списком в консоль в формате JSON.
+\item
+  Распознавание координат точек тела со снимков получаемых с камеры,
+  координаты точек выводятся списком в консоль в формате JSON.
+\item
+  Сравнить скорость работы алгоритма распознавания кисти руки
+  выполненного на C++ со скоростью распознавания выполненного на Python.
+  В отчете привести сравнение скоростей.
+\item
+  Сравнить скорость распознавания кисти руки алгоритмом выполненным на
+  языке Python в этом Модуле со скоростью алгоритма распознавания кисти
+  руки на базе Mediapipe выполненным на языке Python в предыдущем Модуле
+  №1. В отчете привести сравнение скоростей.
+\item
+  Сделать выводы.
+\end{enumerate}
+
+\hypertarget{ux440ux435ux448ux435ux43dux438ux435}{%
+\section{Решение}\label{ux440ux435ux448ux435ux43dux438ux435}}
+
+\hypertarget{ux440ux430ux441ux43fux43eux437ux43dux43eux432ux430ux43dux438ux435-ux43aux438ux441ux442ux438}{%
+\subsection{Распознование
+кисти}\label{ux440ux430ux441ux43fux43eux437ux43dux43eux432ux430ux43dux438ux435-ux43aux438ux441ux442ux438}}
+
+\begin{verbatim}
+python handPoseImage.py
+time taken by network : 0.510
+Total time taken : 0.620
+\end{verbatim}
+
+\begin{verbatim}
+./handPoseImage
+Time Taken = 0.7435
+\end{verbatim}
+
+Код для вывода в \texttt{JSON} на \texttt{Python}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{with} \BuiltInTok{open}\NormalTok{(}\StringTok{\textquotesingle{}output.json\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{) }\ImportTok{as}\NormalTok{ outfile:}
+\NormalTok{    json.dump(\{}\StringTok{"points"}\NormalTok{: points\}, outfile, ensure\_ascii}\OperatorTok{=}\VariableTok{False}\NormalTok{, indent}\OperatorTok{=}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Пример \texttt{JSON} вывода для \texttt{Python}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"points"}\FunctionTok{:} \OtherTok{[}
+        \OtherTok{[}
+            \DecValTok{263}\OtherTok{,}
+            \DecValTok{638}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{365}\OtherTok{,}
+            \DecValTok{570}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{450}\OtherTok{,}
+            \DecValTok{519}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{518}\OtherTok{,}
+            \DecValTok{434}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{518}\OtherTok{,}
+            \DecValTok{349}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{348}\OtherTok{,}
+            \DecValTok{366}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{365}\OtherTok{,}
+            \DecValTok{230}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{382}\OtherTok{,}
+            \DecValTok{161}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{382}\OtherTok{,}
+            \DecValTok{76}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{280}\OtherTok{,}
+            \DecValTok{366}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{297}\OtherTok{,}
+            \DecValTok{212}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{280}\OtherTok{,}
+            \DecValTok{111}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{280}\OtherTok{,}
+            \DecValTok{25}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{229}\OtherTok{,}
+            \DecValTok{383}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{212}\OtherTok{,}
+            \DecValTok{230}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{195}\OtherTok{,}
+            \DecValTok{161}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{195}\OtherTok{,}
+            \DecValTok{76}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{161}\OtherTok{,}
+            \DecValTok{400}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{127}\OtherTok{,}
+            \DecValTok{315}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{127}\OtherTok{,}
+            \DecValTok{247}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{110}\OtherTok{,}
+            \DecValTok{161}
+        \OtherTok{],}
+        \KeywordTok{null}
+    \OtherTok{]}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Код для вывода в \texttt{JSON} на \texttt{C++}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    FileStorage fs}\OperatorTok{(}\StringTok{"output.json"}\OperatorTok{,}\NormalTok{ FileStorage}\OperatorTok{::}\NormalTok{WRITE}\OperatorTok{);}
+
+\NormalTok{    fs }\OperatorTok{\textless{}\textless{}} \StringTok{"points"} \OperatorTok{\textless{}\textless{}} \StringTok{"["}\OperatorTok{;}
+    \ControlFlowTok{for} \OperatorTok{(}\KeywordTok{auto}\OperatorTok{\&}\NormalTok{ el }\OperatorTok{:}\NormalTok{ points}\OperatorTok{)} \OperatorTok{\{}
+\NormalTok{        fs }\OperatorTok{\textless{}\textless{}}\NormalTok{ el}\OperatorTok{;}
+    \OperatorTok{\}}
+\NormalTok{    fs }\OperatorTok{\textless{}\textless{}} \StringTok{"]"}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Пример \texttt{JSON} вывода для \texttt{C++}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"points"}\FunctionTok{:} \OtherTok{[}
+        \OtherTok{[} \DecValTok{263}\OtherTok{,} \DecValTok{638} \OtherTok{],}
+        \OtherTok{[} \DecValTok{365}\OtherTok{,} \DecValTok{570} \OtherTok{],}
+        \OtherTok{[} \DecValTok{450}\OtherTok{,} \DecValTok{519} \OtherTok{],}
+        \OtherTok{[} \DecValTok{518}\OtherTok{,} \DecValTok{434} \OtherTok{],}
+        \OtherTok{[} \DecValTok{518}\OtherTok{,} \DecValTok{349} \OtherTok{],}
+        \OtherTok{[} \DecValTok{348}\OtherTok{,} \DecValTok{366} \OtherTok{],}
+        \OtherTok{[} \DecValTok{365}\OtherTok{,} \DecValTok{230} \OtherTok{],}
+        \OtherTok{[} \DecValTok{382}\OtherTok{,} \DecValTok{161} \OtherTok{],}
+        \OtherTok{[} \DecValTok{382}\OtherTok{,} \DecValTok{76} \OtherTok{],}
+        \OtherTok{[} \DecValTok{280}\OtherTok{,} \DecValTok{366} \OtherTok{],}
+        \OtherTok{[} \DecValTok{297}\OtherTok{,} \DecValTok{212} \OtherTok{],}
+        \OtherTok{[} \DecValTok{280}\OtherTok{,} \DecValTok{111} \OtherTok{],}
+        \OtherTok{[} \DecValTok{280}\OtherTok{,} \DecValTok{25} \OtherTok{],}
+        \OtherTok{[} \DecValTok{229}\OtherTok{,} \DecValTok{383} \OtherTok{],}
+        \OtherTok{[} \DecValTok{212}\OtherTok{,} \DecValTok{230} \OtherTok{],}
+        \OtherTok{[} \DecValTok{195}\OtherTok{,} \DecValTok{161} \OtherTok{],}
+        \OtherTok{[} \DecValTok{195}\OtherTok{,} \DecValTok{76} \OtherTok{],}
+        \OtherTok{[} \DecValTok{161}\OtherTok{,} \DecValTok{400} \OtherTok{],}
+        \OtherTok{[} \DecValTok{127}\OtherTok{,} \DecValTok{315} \OtherTok{],}
+        \OtherTok{[} \DecValTok{127}\OtherTok{,} \DecValTok{247} \OtherTok{],}
+        \OtherTok{[} \DecValTok{110}\OtherTok{,} \DecValTok{161} \OtherTok{],}
+        \OtherTok{[} \DecValTok{127}\OtherTok{,} \DecValTok{247} \OtherTok{]}
+    \OtherTok{]}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux440ux430ux441ux43fux43eux437ux43dux43eux432ux430ux43dux438ux435-ux442ux435ux43bux430}{%
+\subsection{Распознование
+тела}\label{ux440ux430ux441ux43fux43eux437ux43dux43eux432ux430ux43dux438ux435-ux442ux435ux43bux430}}
+
+\begin{verbatim}
+python3 OpenPoseImage.py 
+Using CPU device
+time taken by network : 0.979
+Total time taken : 1.352
+\end{verbatim}
+
+\begin{verbatim}
+./OpenPoseImage 
+USAGE : ./OpenPose <imageFile> 
+USAGE : ./OpenPose <imageFile> <device>
+Using CPU device
+Time Taken = 1.0332
+\end{verbatim}
+
+Код для вывода в \texttt{JSON} одинаков.
+
+Пример вывода в \texttt{JSON} из \texttt{C++}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"points"}\FunctionTok{:} \OtherTok{[}
+        \OtherTok{[} \DecValTok{348}\OtherTok{,} \DecValTok{125} \OtherTok{],}
+        \OtherTok{[} \DecValTok{334}\OtherTok{,} \DecValTok{230} \OtherTok{],}
+        \OtherTok{[} \DecValTok{250}\OtherTok{,} \DecValTok{271} \OtherTok{],}
+        \OtherTok{[} \DecValTok{237}\OtherTok{,} \DecValTok{376} \OtherTok{],}
+        \OtherTok{[} \DecValTok{223}\OtherTok{,} \DecValTok{480} \OtherTok{],}
+        \OtherTok{[} \DecValTok{417}\OtherTok{,} \DecValTok{271} \OtherTok{],}
+        \OtherTok{[} \DecValTok{417}\OtherTok{,} \DecValTok{397} \OtherTok{],}
+        \OtherTok{[} \DecValTok{390}\OtherTok{,} \DecValTok{501} \OtherTok{],}
+        \OtherTok{[} \DecValTok{292}\OtherTok{,} \DecValTok{501} \OtherTok{],}
+        \OtherTok{[} \DecValTok{306}\OtherTok{,} \DecValTok{668} \OtherTok{],}
+        \OtherTok{[} \DecValTok{306}\OtherTok{,} \DecValTok{835} \OtherTok{],}
+        \OtherTok{[} \DecValTok{348}\OtherTok{,} \DecValTok{501} \OtherTok{],}
+        \OtherTok{[} \DecValTok{348}\OtherTok{,} \DecValTok{668} \OtherTok{],}
+        \OtherTok{[} \DecValTok{334}\OtherTok{,} \DecValTok{793} \OtherTok{],}
+        \OtherTok{[} \DecValTok{334}\OtherTok{,} \DecValTok{376} \OtherTok{]}
+    \OtherTok{]}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Пример вывода в \texttt{JSON} из \texttt{Python}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"points"}\FunctionTok{:} \OtherTok{[}
+        \OtherTok{[}
+            \DecValTok{361}\OtherTok{,}
+            \DecValTok{187}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{333}\OtherTok{,}
+            \DecValTok{271}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{250}\OtherTok{,}
+            \DecValTok{271}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{236}\OtherTok{,}
+            \DecValTok{375}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{208}\OtherTok{,}
+            \DecValTok{480}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{417}\OtherTok{,}
+            \DecValTok{271}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{417}\OtherTok{,}
+            \DecValTok{396}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{389}\OtherTok{,}
+            \DecValTok{500}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{292}\OtherTok{,}
+            \DecValTok{500}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{306}\OtherTok{,}
+            \DecValTok{667}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{306}\OtherTok{,}
+            \DecValTok{855}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{361}\OtherTok{,}
+            \DecValTok{500}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{361}\OtherTok{,}
+            \DecValTok{667}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{333}\OtherTok{,}
+            \DecValTok{813}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{347}\OtherTok{,}
+            \DecValTok{187}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{375}\OtherTok{,}
+            \DecValTok{166}
+        \OtherTok{],}
+        \OtherTok{[}
+            \DecValTok{306}\OtherTok{,}
+            \DecValTok{166}
+        \OtherTok{],}
+        \KeywordTok{null}
+    \OtherTok{]}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux432ux44bux432ux43eux434}{%
+\subsection{Вывод}\label{ux432ux44bux432ux43eux434}}
+
+Т.к. \texttt{python-opencv}
+\href{https://docs.opencv.org/4.x/da/d49/tutorial_py_bindings_basics.html}{это
+лишь ``обертка'' для обычных \texttt{C++} функций} из \texttt{opencv},
+разницы в скорости нет.
+
+\end{document}
